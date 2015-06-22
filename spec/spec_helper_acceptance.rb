@@ -2,7 +2,7 @@ require 'beaker-rspec/spec_helper'
 require 'beaker-rspec/helpers/serverspec'
 
 hosts.each do |host|
-  install_puppet({ :default_action => 'gem_install' })
+  install_puppet
 end
 
 RSpec.configure do |c|
