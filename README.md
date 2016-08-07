@@ -61,7 +61,7 @@ The name of the package to install that provides the port mapper.
 
 ##### `service_name`
 
-The name of the service
+The name of the service.
 
 ### Examples
 
