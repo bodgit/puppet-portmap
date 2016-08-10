@@ -5,7 +5,7 @@ class portmap::params {
     'RedHat': {
       $manage_package = true
       case $::operatingsystemmajrelease {
-        5: {
+        '5': {
           $package_name = 'portmap'
           $service_name = 'portmap'
         }
@@ -26,6 +26,7 @@ class portmap::params {
     'OpenBSD': {
       # Part of the base system
       $manage_package = false
+      $package_name   = undef
       $service_name   = 'portmap'
     }
     default: {

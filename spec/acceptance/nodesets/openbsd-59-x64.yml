@@ -1,0 +1,10 @@
+HOSTS:
+  openbsd-59-x64:
+    roles:
+      - master
+    platform: openbsd-5.9-amd64
+    box: bodgit/openbsd-5.9-amd64
+    box_url: https://atlas.hashicorp.com/bodgit/boxes/openbsd-5.9-amd64
+    hypervisor: vagrant
+CONFIG:
+  type: foss

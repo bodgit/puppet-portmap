@@ -2,8 +2,10 @@
 
 Tested with Travis CI
 
-[![Puppet Forge](http://img.shields.io/puppetforge/v/bodgit/portmap.svg)](https://forge.puppetlabs.com/bodgit/portmap)
 [![Build Status](https://travis-ci.org/bodgit/puppet-portmap.svg?branch=master)](https://travis-ci.org/bodgit/puppet-portmap)
+[![Coverage Status](https://coveralls.io/repos/bodgit/puppet-portmap/badge.svg?branch=master&service=github)](https://coveralls.io/github/bodgit/puppet-portmap?branch=master)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/bodgit/portmap.svg)](https://forge.puppetlabs.com/bodgit/portmap)
+[![Dependency Status](https://gemnasium.com/bodgit/puppet-portmap.svg)](https://gemnasium.com/bodgit/puppet-portmap)
 
 #### Table of Contents
 
@@ -94,7 +96,7 @@ The module has been tested on:
 * RedHat/CentOS Enterprise Linux 5/6/7
 * Ubuntu 12.04/14.04
 * Debian 6/7
-* OpenBSD 5.7
+* OpenBSD 5.7/5.8/5.9
 
 It should also probably work on:
 

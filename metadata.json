@@ -57,14 +57,20 @@
     {
       "operatingsystem": "OpenBSD",
       "operatingsystemrelease": [
-        "5.7"
+        "5.7",
+        "5.8",
+        "5.9"
       ]
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": "3.x"
+      "version_requirement": ">=3.0.0 <5.0.0"
+    },
+    {
+      "name": "pe",
+      "version_requirement": ">=3.7.0 <2015.4.0"
     }
   ],
   "tags": [
