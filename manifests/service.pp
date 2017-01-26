@@ -1,4 +1,4 @@
-#
+# @!visibility private
 class portmap::service {
 
   service { $::portmap::service_name:

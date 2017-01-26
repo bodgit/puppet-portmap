@@ -9,36 +9,23 @@ Tested with Travis CI
 
 #### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with portmap](#setup)
-    * [What portmap affects](#what-portmap-affects)
+1. [Description](#description)
+2. [Setup - The basics of getting started with portmap](#setup)
     * [Beginning with portmap](#beginning-with-portmap)
-4. [Usage - Configuration options and additional functionality](#usage)
-    * [Classes and Defined Types](#classes-and-defined-types)
-        * [Class: portmap](#class-portmap)
-    * [Examples](#examples)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+3. [Usage - Configuration options and additional functionality](#usage)
+4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
-## Overview
+## Description
 
 This module manages the RPC port mapper.
 
-## Module Description
-
-This module installs and manages either the `portmap` or `rpcbind` daemon, a
-prerequisite for NFS and/or NIS services.
-
 ## Setup
 
-### What portmap affects
-
-* The package providing the RPC port mapper.
-* The service controlling the `portmap` or `rpcbind` daemon.
-
 ### Beginning with portmap
+
+In the very simplest case, you can just include the following:
 
 ```puppet
 include ::portmap
@@ -46,65 +33,37 @@ include ::portmap
 
 ## Usage
 
-### Classes and Defined Types
-
-#### Class: `portmap`
-
-**Parameters within `portmap`:**
-
-##### `manage_package`
-
-Whether to manage a package or not. Some operating systems have a port mapper
-as part of the base system.
-
-##### `package_name`
-
-The name of the package to install that provides the port mapper.
-
-##### `service_name`
-
-The name of the service.
-
-### Examples
-
-Install and enable the port mapper:
-
-```puppet
-include ::portmap
-```
+The port mapper exposes no configuration options so the above example is all
+that is necessary.
 
 ## Reference
 
-### Classes
-
-#### Public Classes
-
-* [`portmap`](#class-portmap): Main class for installing the RPC port mapper.
-
-#### Private Classes
-
-* `portmap::install`: Handles package installation.
-* `portmap::params`: Different configuration data for different systems.
-* `portmap::service`: Handles the `portmap` or `rpcbind` daemon.
+The reference documentation is generated with
+[puppet-strings](https://github.com/puppetlabs/puppet-strings) and the latest
+version of the documentation is hosted at
+[https://bodgit.github.io/puppet-portmap/](https://bodgit.github.io/puppet-portmap/).
 
 ## Limitations
 
-This module has been built on and tested against Puppet 3.0 and higher.
+This module has been built on and tested against Puppet 4.4.0 and higher.
 
 The module has been tested on:
 
-* RedHat/CentOS Enterprise Linux 5/6/7
-* Ubuntu 12.04/14.04
-* Debian 6/7
-* OpenBSD 5.7/5.8/5.9
-
-It should also probably work on:
-
-* Fedora 19/20 (need vagrant boxes for tests)
-
-Testing on other platforms has been light and cannot be guaranteed.
+* RedHat Enterprise Linux 5/6/7
+* Ubuntu 12.04/14.04/16.04
+* Debian 6/7/8
+* OpenBSD 6.0
 
 ## Development
+
+The module has both [rspec-puppet](http://rspec-puppet.com) and
+[beaker-rspec](https://github.com/puppetlabs/beaker-rspec) tests. Run them
+with:
+
+```
+$ bundle exec rake test
+$ PUPPET_INSTALL_TYPE=agent PUPPET_INSTALL_VERSION=x.y.z bundle exec rake beaker:<nodeset>
+```
 
 Please log issues or pull requests at
 [github](https://github.com/bodgit/puppet-portmap).

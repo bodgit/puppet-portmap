@@ -1,22 +1,19 @@
+# Install the RPC port mapper.
 #
+# @example Declaring the class
+#   include ::portmap
+#
+# @param manage_package Whether a package is needed to be installed.
+# @param package_name The package name, usually either `portmap` or `rpcbind`.
+# @param service_name The service name, usually either `portmap` or `rpcbind`.
 class portmap (
-  $manage_package = $::portmap::params::manage_package,
-  $package_name   = $::portmap::params::package_name,
-  $service_name   = $::portmap::params::service_name,
+  Boolean          $manage_package = $::portmap::params::manage_package,
+  Optional[String] $package_name   = $::portmap::params::package_name,
+  String           $service_name   = $::portmap::params::service_name,
 ) inherits ::portmap::params {
 
-  validate_bool($manage_package)
-  if $manage_package {
-    validate_string($package_name)
-  }
-  validate_string($service_name)
+  contain ::portmap::install
+  contain ::portmap::service
 
-  include ::portmap::install
-  include ::portmap::service
-
-  anchor { 'portmap::begin': }
-  anchor { 'portmap::end': }
-
-  Anchor['portmap::begin'] -> Class['::portmap::install']
-    -> Class['::portmap::service'] -> Anchor['portmap::end']
+  Class['::portmap::install'] -> Class['::portmap::service']
 }

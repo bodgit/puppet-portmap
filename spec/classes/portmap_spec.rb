@@ -18,8 +18,6 @@ describe 'portmap' do
         facts
       end
 
-      it { should contain_anchor('portmap::begin') }
-      it { should contain_anchor('portmap::end') }
       it { should contain_class('portmap') }
       it { should contain_class('portmap::install') }
       it { should contain_class('portmap::params') }

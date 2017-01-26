@@ -32,7 +32,7 @@ describe 'portmap' do
     apply_manifest(pp, :catch_changes  => true)
   end
 
-  describe package(package_name), :if => fact('osfamily') != 'OpenBSD' do
+  describe package(package_name), :unless => fact('osfamily').eql?('OpenBSD') do
     it { should be_installed }
   end
 

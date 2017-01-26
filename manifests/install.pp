@@ -1,4 +1,4 @@
-#
+# @!visibility private
 class portmap::install {
 
   if $::portmap::manage_package {
