@@ -7,6 +7,7 @@
 # @param manage_service Whether service is running or not.
 # @param package_name The package name, usually either `portmap` or `rpcbind`.
 # @param service_name The service name, usually either `portmap` or `rpcbind`.
+# @param service_provider The service provider, usually either `init`, `systemd` or `upstart`.
 class portmap (
   Boolean          $manage_package   = $::portmap::params::manage_package,
   Boolean          $manage_service   = $::portmap::params::manage_service,
