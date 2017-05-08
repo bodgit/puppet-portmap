@@ -10,16 +10,19 @@ class portmap::service {
     $portmap_enable  = false
   }
 
-  service {
-    "${::portmap::service_name}.service":
+  service { $::portmap::service_name:
+    ensure     => $portmap_service,
+    enable     => $portmap_enable,
+    hasstatus  => true,
+    hasrestart => true;
+  }
+
+  if $::portmap::service_provider == 'systemd' {
+    service { "${::portmap::service_name}.socket":
       ensure     => $portmap_service,
       enable     => $portmap_enable,
       hasstatus  => true,
       hasrestart => true;
-    "${::portmap::service_name}.socket":
-      ensure     => $portmap_service,
-      enable     => $portmap_enable,
-      hasstatus  => true,
-      hasrestart => true;
+    }
   }
 }
