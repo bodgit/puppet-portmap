@@ -1,11 +1,10 @@
 # @!visibility private
 class portmap::params {
 
-  $manage_package = true
-  $manage_service = true
-
   case $::osfamily {
     'RedHat': {
+      $manage_package = true
+      $manage_service = true
       case $::operatingsystemmajrelease {
         '5': {
           $package_name     = 'portmap'
@@ -25,6 +24,8 @@ class portmap::params {
       }
     }
     'Debian': {
+      $manage_package = true
+      $manage_service = true
       $package_name   = 'rpcbind'
       case $::lsbdistcodename {
         'precise': {
