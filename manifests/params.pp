@@ -4,7 +4,7 @@ class portmap::params {
   case $::osfamily {
     'RedHat': {
       $manage_package = true
-      $manage_service = true
+      $service_status = 'running'
       case $::operatingsystemmajrelease {
         '5': {
           $package_name     = 'portmap'
@@ -25,7 +25,7 @@ class portmap::params {
     }
     'Debian': {
       $manage_package = true
-      $manage_service = true
+      $service_status = 'running'
       $package_name   = 'rpcbind'
       case $::lsbdistcodename {
         'precise': {
@@ -53,7 +53,7 @@ class portmap::params {
     'OpenBSD': {
       # Part of the base system
       $manage_package   = false
-      $manage_service   = false
+      $service_status   = 'stopped'
       $package_name     = undef
       $service_name     = 'portmap'
       $service_provider = 'init'
