@@ -56,7 +56,7 @@ class portmap::params {
       $manage_service   = false
       $package_name     = undef
       $service_name     = 'portmap'
-      $service_provider = undef
+      $service_provider = 'init'
     }
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
