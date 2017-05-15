@@ -52,7 +52,7 @@ The module has been tested on:
 * RedHat Enterprise Linux 5/6/7
 * Ubuntu 12.04/14.04/16.04
 * Debian 6/7/8
-* OpenBSD 6.0
+* OpenBSD 6.0/6.1
 
 ## Development
 
