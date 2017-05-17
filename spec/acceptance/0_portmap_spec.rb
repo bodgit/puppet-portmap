@@ -3,15 +3,11 @@ require 'spec_helper_acceptance'
 describe 'portmap' do
   case fact('osfamily')
   when 'RedHat'
+    package_name = 'rpcbind'
     case fact('operatingsystemmajrelease')
-    when '5'
-      package_name = 'portmap'
-      service_name = 'portmap'
     when '6'
-      package_name = 'rpcbind'
       service_name = 'rpcbind'
     else
-      package_name = 'rpcbind'
       service_name = 'rpcbind.socket'
     end
   when 'Debian'
@@ -19,8 +15,6 @@ describe 'portmap' do
     case fact('operatingsystem')
     when 'Ubuntu'
       case fact('operatingsystemrelease')
-      when '12.04'
-        service_name = 'portmap'
       when '14.04'
         service_name = 'rpcbind'
       else

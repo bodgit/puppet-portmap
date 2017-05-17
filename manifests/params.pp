@@ -7,17 +7,13 @@ class portmap::params {
   case $::osfamily {
     'RedHat': {
       $manage_package = true
+      $package_name   = 'rpcbind'
+
       case $::operatingsystemmajrelease {
-        '5': {
-          $package_name = 'portmap'
-          $service_name = 'portmap'
-        }
         '6': {
-          $package_name = 'rpcbind'
           $service_name = 'rpcbind'
         }
         default: {
-          $package_name = 'rpcbind'
           $service_name = 'rpcbind.socket'
         }
       }
@@ -25,12 +21,10 @@ class portmap::params {
     'Debian': {
       $manage_package = true
       $package_name   = 'rpcbind'
+
       case $::operatingsystem {
         'Ubuntu': {
           case $::operatingsystemrelease {
-            '12.04': {
-              $service_name = 'portmap' # lolubuntu
-            }
             '14.04': {
               $service_name = 'rpcbind'
             }
