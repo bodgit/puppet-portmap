@@ -138,6 +138,42 @@
   
     <li>
       
+        <span class='name'>service_enable</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::portmap::params::service_enable</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether to enable the service or not.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_ensure</span>
+      
+      
+        <span class='type'>(<tt>Enum['running', 'stopped']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::portmap::params::service_ensure</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether the service should be running or stopped.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>service_name</span>
       
       
@@ -165,8 +201,6 @@
         <pre class="lines">
 
 
-9
-10
 11
 12
 13
@@ -175,15 +209,21 @@
 16
 17
 18
-19</pre>
+19
+20
+21
+22
+23</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 9</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 11</span>
 
 class portmap (
-  Boolean          $manage_package = $::portmap::params::manage_package,
-  Optional[String] $package_name   = $::portmap::params::package_name,
-  String           $service_name   = $::portmap::params::service_name,
+  Boolean                    $manage_package = $::portmap::params::manage_package,
+  Optional[String]           $package_name   = $::portmap::params::package_name,
+  Boolean                    $service_enable = $::portmap::params::service_enable,
+  Enum[&#39;running&#39;, &#39;stopped&#39;] $service_ensure = $::portmap::params::service_ensure,
+  String                     $service_name   = $::portmap::params::service_name,
 ) inherits ::portmap::params {
 
   contain ::portmap::install
@@ -198,7 +238,7 @@ class portmap (
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 26 21:32:34 2017 by
+  Generated on Thu May 18 00:27:10 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.7 (ruby-2.2.5).
 </div>
