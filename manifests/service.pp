@@ -2,8 +2,8 @@
 class portmap::service {
 
   service { $::portmap::service_name:
-    ensure     => running,
-    enable     => true,
+    ensure     => $::portmap::service_ensure,
+    enable     => $::portmap::service_enable,
     hasstatus  => true,
     hasrestart => true,
   }

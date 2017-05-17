@@ -7,15 +7,25 @@ describe 'portmap' do
     when '5'
       package_name = 'portmap'
       service_name = 'portmap'
-    else
+    when '6'
       package_name = 'rpcbind'
       service_name = 'rpcbind'
+    else
+      package_name = 'rpcbind'
+      service_name = 'rpcbind.socket'
     end
   when 'Debian'
     package_name = 'rpcbind'
-    case fact('lsbdistcodename')
-    when 'precise'
-      service_name = 'portmap'
+    case fact('operatingsystem')
+    when 'Ubuntu'
+      case fact('operatingsystemrelease')
+      when '12.04'
+        service_name = 'portmap'
+      when '14.04'
+        service_name = 'rpcbind'
+      else
+        service_name = 'rpcbind.socket'
+      end
     else
       service_name = 'rpcbind'
     end
@@ -37,13 +47,14 @@ describe 'portmap' do
   end
 
   describe service(service_name) do
+    it { should be_enabled }
     it { should be_running }
   end
 
   # Explicitly adding the '-p' changes the output on the rpcbind version
   describe command('rpcinfo -p') do
-    its(:stdout) { should match /100000\s+2\s+tcp\s+111\s+portmapper/ }
-    its(:stdout) { should match /100000\s+2\s+udp\s+111\s+portmapper/ }
+    its(:stdout) { should match /100000 \s+ 2 \s+ tcp \s+ 111 \s+ portmapper/x }
+    its(:stdout) { should match /100000 \s+ 2 \s+ udp \s+ 111 \s+ portmapper/x }
     its(:exit_status) { should eq 0 }
   end
 end

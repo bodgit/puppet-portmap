@@ -25,12 +25,18 @@ describe 'portmap' do
 
       case facts[:osfamily]
       when 'Debian'
-        case facts[:lsbdistcodename]
-        when 'precise'
-          it { should contain_package('rpcbind') }
-          it { should contain_service('portmap') }
+        it { should contain_package('rpcbind') }
+        case facts[:operatingsystem]
+        when 'Ubuntu'
+          case facts[:operatingsystemrelease]
+          when '12.04'
+            it { should contain_service('portmap') }
+          when '14.04'
+            it { should contain_service('rpcbind') }
+          else
+            it { should contain_service('rpcbind.socket') }
+          end
         else
-          it { should contain_package('rpcbind') }
           it { should contain_service('rpcbind') }
         end
       when 'OpenBSD'
@@ -41,9 +47,12 @@ describe 'portmap' do
         when '5'
           it { should contain_package('portmap') }
           it { should contain_service('portmap') }
-        else
+        when '6'
           it { should contain_package('rpcbind') }
           it { should contain_service('rpcbind') }
+        else
+          it { should contain_package('rpcbind') }
+          it { should contain_service('rpcbind.socket') }
         end
       end
     end

@@ -1,6 +1,9 @@
 # @!visibility private
 class portmap::params {
 
+  $service_enable = true
+  $service_ensure = 'running'
+
   case $::osfamily {
     'RedHat': {
       $manage_package = true
@@ -9,18 +12,36 @@ class portmap::params {
           $package_name = 'portmap'
           $service_name = 'portmap'
         }
-        default: {
+        '6': {
           $package_name = 'rpcbind'
           $service_name = 'rpcbind'
+        }
+        default: {
+          $package_name = 'rpcbind'
+          $service_name = 'rpcbind.socket'
         }
       }
     }
     'Debian': {
       $manage_package = true
       $package_name   = 'rpcbind'
-      $service_name   = $::lsbdistcodename ? {
-        'precise' => 'portmap', # lolubuntu
-        default   => 'rpcbind',
+      case $::operatingsystem {
+        'Ubuntu': {
+          case $::operatingsystemrelease {
+            '12.04': {
+              $service_name = 'portmap' # lolubuntu
+            }
+            '14.04': {
+              $service_name = 'rpcbind'
+            }
+            default: {
+              $service_name = 'rpcbind.socket'
+            }
+          }
+        }
+        default: {
+          $service_name = 'rpcbind'
+        }
       }
     }
     'OpenBSD': {
