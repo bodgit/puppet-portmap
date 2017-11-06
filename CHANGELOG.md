@@ -1,5 +1,8 @@
 # Change Log
 
+## [v2.1.1](https://github.com/bodgit/puppet-portmap/tree/v2.1.1) (2017-11-06)
+[Full Changelog](https://github.com/bodgit/puppet-portmap/compare/v2.1.0...v2.1.1)
+
 ## [v2.1.0](https://github.com/bodgit/puppet-portmap/tree/v2.1.0) (2017-05-17)
 [Full Changelog](https://github.com/bodgit/puppet-portmap/compare/v2.0.0...v2.1.0)
 
