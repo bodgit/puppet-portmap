@@ -4,12 +4,12 @@ class portmap::params {
   $service_enable = true
   $service_ensure = 'running'
 
-  case $::osfamily {
+  case $facts['os']['family'] {
     'RedHat': {
       $manage_package = true
       $package_name   = 'rpcbind'
 
-      case $::operatingsystemmajrelease {
+      case $facts['os']['release']['major'] {
         '6': {
           $service_name = 'rpcbind'
         }
@@ -22,9 +22,9 @@ class portmap::params {
       $manage_package = true
       $package_name   = 'rpcbind'
 
-      case $::operatingsystem {
+      case $facts['os']['name'] {
         'Ubuntu': {
-          case $::operatingsystemrelease {
+          case $facts['os']['release']['full'] {
             '14.04': {
               $service_name = 'rpcbind'
             }
@@ -45,7 +45,7 @@ class portmap::params {
       $service_name   = 'portmap'
     }
     default: {
-      fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
+      fail("The ${module_name} module is not supported on an ${facts['os']['family']} based system.")
     }
   }
 }

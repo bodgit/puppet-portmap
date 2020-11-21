@@ -7,6 +7,9 @@
   "source": "https://github.com/bodgit/puppet-portmap",
   "project_page": "https://github.com/bodgit/puppet-portmap",
   "issues_url": "https://github.com/bodgit/puppet-portmap/issues",
+  "dependencies": [
+
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
@@ -69,5 +72,7 @@
     "rpcbind",
     "rpc"
   ],
-  "dependencies": []
+  "pdk-version": "1.18.1",
+  "template-url": "https://github.com/puppetlabs/pdk-templates#1.18.1",
+  "template-ref": "tags/1.18.1-0-g3d2e75c"
 }
