@@ -14,10 +14,10 @@ class portmap (
   Boolean                    $service_enable = $::portmap::params::service_enable,
   Enum['running', 'stopped'] $service_ensure = $::portmap::params::service_ensure,
   String                     $service_name   = $::portmap::params::service_name,
-) inherits ::portmap::params {
+) inherits portmap::params {
 
-  contain ::portmap::install
-  contain ::portmap::service
+  contain portmap::install
+  contain portmap::service
 
-  Class['::portmap::install'] -> Class['::portmap::service']
+  Class['portmap::install'] -> Class['portmap::service']
 }
