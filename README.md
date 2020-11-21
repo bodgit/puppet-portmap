@@ -1,11 +1,10 @@
 # portmap
 
-Tested with Travis CI
-
 [![Build Status](https://travis-ci.org/bodgit/puppet-portmap.svg?branch=master)](https://travis-ci.org/bodgit/puppet-portmap)
-[![Coverage Status](https://coveralls.io/repos/bodgit/puppet-portmap/badge.svg?branch=master&service=github)](https://coveralls.io/github/bodgit/puppet-portmap?branch=master)
-[![Puppet Forge](http://img.shields.io/puppetforge/v/bodgit/portmap.svg)](https://forge.puppetlabs.com/bodgit/portmap)
-[![Dependency Status](https://gemnasium.com/bodgit/puppet-portmap.svg)](https://gemnasium.com/bodgit/puppet-portmap)
+[![Codecov](https://img.shields.io/codecov/c/github/bodgit/puppet-portmap)](https://codecov.io/gh/bodgit/puppet-portmap)
+[![Puppet Forge version](http://img.shields.io/puppetforge/v/bodgit/portmap)](https://forge.puppetlabs.com/bodgit/portmap)
+[![Puppet Forge downloads](https://img.shields.io/puppetforge/dt/bodgit/portmap)](https://forge.puppetlabs.com/bodgit/portmap)
+[![Puppet Forge - PDK version](https://img.shields.io/puppetforge/pdk-version/bodgit/portmap)](https://forge.puppetlabs.com/bodgit/portmap)
 
 #### Table of Contents
 
@@ -41,11 +40,12 @@ that is necessary.
 The reference documentation is generated with
 [puppet-strings](https://github.com/puppetlabs/puppet-strings) and the latest
 version of the documentation is hosted at
-[https://bodgit.github.io/puppet-portmap/](https://bodgit.github.io/puppet-portmap/).
+[https://bodgit.github.io/puppet-portmap/](https://bodgit.github.io/puppet-portmap/)
+and available also in the [REFERENCE.md](https://github.com/bodgit/puppet-portmap/blob/master/REFERENCE.md).
 
 ## Limitations
 
-This module has been built on and tested against Puppet 4.4.0 and higher.
+This module has been built on and tested against Puppet 5 and higher.
 
 The module has been tested on:
 
@@ -56,12 +56,13 @@ The module has been tested on:
 
 ## Development
 
-The module has both [rspec-puppet](http://rspec-puppet.com) and
+The module relies on [PDK](https://puppet.com/docs/pdk/1.x/pdk.html) and has
+both [rspec-puppet](http://rspec-puppet.com) and
 [beaker-rspec](https://github.com/puppetlabs/beaker-rspec) tests. Run them
 with:
 
 ```
-$ bundle exec rake test
+$ bundle exec rake spec
 $ PUPPET_INSTALL_TYPE=agent PUPPET_INSTALL_VERSION=x.y.z bundle exec rake beaker:<nodeset>
 ```
 
