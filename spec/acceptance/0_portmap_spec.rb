@@ -47,8 +47,10 @@ describe 'portmap' do
 
   # Explicitly adding the '-p' changes the output on the rpcbind version
   describe command('rpcinfo -p') do
+    # rubocop:disable RepeatedDescription
     its(:stdout) { is_expected.to match %r{100000 \s+ 2 \s+ tcp \s+ 111 \s+ portmapper}x }
     its(:stdout) { is_expected.to match %r{100000 \s+ 2 \s+ udp \s+ 111 \s+ portmapper}x }
+    # rubocop:enable RepeatedDescription
     its(:exit_status) { is_expected.to eq 0 }
   end
 end
