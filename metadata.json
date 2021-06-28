@@ -71,7 +71,7 @@
     "rpcbind",
     "rpc"
   ],
-  "pdk-version": "2.0.0",
-  "template-url": "https://github.com/puppetlabs/pdk-templates#2.0.0",
-  "template-ref": "tags/2.0.0-0-ge838f1d"
+  "pdk-version": "2.1.0",
+  "template-url": "https://github.com/bodgit/pdk-templates#bodgit",
+  "template-ref": "remotes/origin/bodgit-0-g022387a"
 }
