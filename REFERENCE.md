@@ -8,12 +8,11 @@
 
 * [`portmap`](#portmap): Install the RPC port mapper.
 * [`portmap::install`](#portmapinstall)
-* [`portmap::params`](#portmapparams)
 * [`portmap::service`](#portmapservice)
 
 ## Classes
 
-### `portmap`
+### <a name="portmap"></a>`portmap`
 
 Install the RPC port mapper.
 
@@ -22,62 +21,54 @@ Install the RPC port mapper.
 ##### Declaring the class
 
 ```puppet
-include ::portmap
+include portmap
 ```
 
 #### Parameters
 
-The following parameters are available in the `portmap` class.
+The following parameters are available in the `portmap` class:
 
-##### `manage_package`
+* [`manage_package`](#manage_package)
+* [`package_name`](#package_name)
+* [`service_enable`](#service_enable)
+* [`service_ensure`](#service_ensure)
+* [`service_name`](#service_name)
+
+##### <a name="manage_package"></a>`manage_package`
 
 Data type: `Boolean`
 
 Whether a package is needed to be installed.
 
-Default value: `$::portmap::params::manage_package`
-
-##### `package_name`
+##### <a name="package_name"></a>`package_name`
 
 Data type: `Optional[String]`
 
 The package name, usually either `portmap` or `rpcbind`.
 
-Default value: `$::portmap::params::package_name`
-
-##### `service_enable`
+##### <a name="service_enable"></a>`service_enable`
 
 Data type: `Boolean`
 
 Whether to enable the service or not.
 
-Default value: `$::portmap::params::service_enable`
-
-##### `service_ensure`
+##### <a name="service_ensure"></a>`service_ensure`
 
 Data type: `Enum['running', 'stopped']`
 
 Whether the service should be running or stopped.
 
-Default value: `$::portmap::params::service_ensure`
-
-##### `service_name`
+##### <a name="service_name"></a>`service_name`
 
 Data type: `String`
 
 The service name, usually either `portmap` or `rpcbind`.
 
-Default value: `$::portmap::params::service_name`
-
-### `portmap::install`
+### <a name="portmapinstall"></a>`portmap::install`
 
 The portmap::install class.
 
-### `portmap::params`
-
-The portmap::params class.
-
-### `portmap::service`
+### <a name="portmapservice"></a>`portmap::service`
 
 The portmap::service class.
 
