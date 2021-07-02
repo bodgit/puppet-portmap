@@ -1,0 +1,2 @@
+---
+portmap::service_name: 'rpcbind'

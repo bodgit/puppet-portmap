@@ -1,0 +1,4 @@
+---
+portmap::manage_package: false
+portmap::package_name: ~
+portmap::service_name: 'portmap'

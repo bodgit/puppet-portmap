@@ -1,1 +1,5 @@
---- {}
+---
+portmap::manage_package: true
+portmap::package_name: 'rpcbind'
+portmap::service_enable: true
+portmap::service_ensure: 'running'

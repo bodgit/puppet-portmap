@@ -1,18 +1,6 @@
 require 'spec_helper'
 
 describe 'portmap' do
-  context 'on unsupported distributions' do
-    let(:facts) do
-      {
-        os: {
-          family: 'Unsupported',
-        },
-      }
-    end
-
-    it { is_expected.to compile.and_raise_error(%r{not supported on an Unsupported}) }
-  end
-
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts) do
@@ -23,7 +11,6 @@ describe 'portmap' do
 
       it { is_expected.to contain_class('portmap') }
       it { is_expected.to contain_class('portmap::install') }
-      it { is_expected.to contain_class('portmap::params') }
       it { is_expected.to contain_class('portmap::service') }
 
       if facts[:os]['family'].eql?('OpenBSD')
