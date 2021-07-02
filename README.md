@@ -20,6 +20,9 @@
 
 This module manages the RPC port mapper.
 
+RHEL/CentOS, Ubuntu, Debian and OpenBSD are supported using Puppet 5 or
+later.
+
 ## Setup
 
 ### Beginning with portmap
@@ -49,10 +52,10 @@ This module has been built on and tested against Puppet 5 and higher.
 
 The module has been tested on:
 
-* RedHat Enterprise Linux 6/7
-* Ubuntu 14.04/16.04
-* Debian 8
-* OpenBSD 6.0/6.1
+* Red Hat/CentOS Enterprise Linux 6/7/8
+* Ubuntu 16.04/18.04/20.04
+* Debian 9/10
+* OpenBSD 6.9
 
 ## Development
 

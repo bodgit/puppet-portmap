@@ -26,29 +26,12 @@ describe 'portmap' do
       it { is_expected.to contain_class('portmap::params') }
       it { is_expected.to contain_class('portmap::service') }
 
-      # rubocop:disable RepeatedExample
-
-      case facts[:osfamily]
-      when 'Debian'
-        it { is_expected.to contain_package('rpcbind') }
-        case facts[:operatingsystem]
-        when 'Ubuntu'
-          case facts[:operatingsystemrelease]
-          when '14.04'
-            it { is_expected.to contain_service('rpcbind') }
-          else
-            it { is_expected.to contain_service('rpcbind.socket') }
-          end
-        else
-          it { is_expected.to contain_service('rpcbind') }
-        end
-      when 'OpenBSD'
+      if facts[:os]['family'].eql?('OpenBSD')
         it { is_expected.to have_package_resource_count(0) }
         it { is_expected.to contain_service('portmap') }
-      when 'RedHat'
+      else
         it { is_expected.to contain_package('rpcbind') }
-        case facts[:operatingsystemmajrelease]
-        when '6'
+        if facts[:os]['family'].eql?('RedHat') && facts[:os]['release']['major'].eql?('6')
           it { is_expected.to contain_service('rpcbind') }
         else
           it { is_expected.to contain_service('rpcbind.socket') }
