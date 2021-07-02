@@ -21,22 +21,7 @@ class portmap::params {
     'Debian': {
       $manage_package = true
       $package_name   = 'rpcbind'
-
-      case $facts['os']['name'] {
-        'Ubuntu': {
-          case $facts['os']['release']['full'] {
-            '14.04': {
-              $service_name = 'rpcbind'
-            }
-            default: {
-              $service_name = 'rpcbind.socket'
-            }
-          }
-        }
-        default: {
-          $service_name = 'rpcbind'
-        }
-      }
+      $service_name   = 'rpcbind.socket'
     }
     'OpenBSD': {
       # Part of the base system
