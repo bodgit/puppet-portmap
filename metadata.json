@@ -1,6 +1,6 @@
 {
   "name": "bodgit-portmap",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "author": "bodgit",
   "summary": "Puppet Module for managing RPC port mapper",
   "license": "Apache-2.0",
