@@ -1,6 +1,6 @@
 # portmap
 
-[![Build Status](https://travis-ci.org/bodgit/puppet-portmap.svg?branch=master)](https://travis-ci.org/bodgit/puppet-portmap)
+[![Build Status](https://img.shields.io/github/workflow/status/bodgit/puppet-portmap/Test)](https://github.com/bodgit/puppet-portmap/actions?query=workflow%3ATest)
 [![Codecov](https://img.shields.io/codecov/c/github/bodgit/puppet-portmap)](https://codecov.io/gh/bodgit/puppet-portmap)
 [![Puppet Forge version](http://img.shields.io/puppetforge/v/bodgit/portmap)](https://forge.puppetlabs.com/bodgit/portmap)
 [![Puppet Forge downloads](https://img.shields.io/puppetforge/dt/bodgit/portmap)](https://forge.puppetlabs.com/bodgit/portmap)
@@ -44,7 +44,7 @@ The reference documentation is generated with
 [puppet-strings](https://github.com/puppetlabs/puppet-strings) and the latest
 version of the documentation is hosted at
 [https://bodgit.github.io/puppet-portmap/](https://bodgit.github.io/puppet-portmap/)
-and available also in the [REFERENCE.md](https://github.com/bodgit/puppet-portmap/blob/master/REFERENCE.md).
+and available also in the [REFERENCE.md](https://github.com/bodgit/puppet-portmap/blob/main/REFERENCE.md).
 
 ## Limitations
 
@@ -61,12 +61,12 @@ The module has been tested on:
 
 The module relies on [PDK](https://puppet.com/docs/pdk/1.x/pdk.html) and has
 both [rspec-puppet](http://rspec-puppet.com) and
-[beaker-rspec](https://github.com/puppetlabs/beaker-rspec) tests. Run them
+[Litmus](https://github.com/puppetlabs/puppet_litmus) tests. Run them
 with:
 
 ```
 $ bundle exec rake spec
-$ PUPPET_INSTALL_TYPE=agent PUPPET_INSTALL_VERSION=x.y.z bundle exec rake beaker:<nodeset>
+$ bundle exec rake litmus:*
 ```
 
 Please log issues or pull requests at
