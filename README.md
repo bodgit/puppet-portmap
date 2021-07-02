@@ -27,7 +27,7 @@ This module manages the RPC port mapper.
 In the very simplest case, you can just include the following:
 
 ```puppet
-include ::portmap
+include portmap
 ```
 
 ## Usage
