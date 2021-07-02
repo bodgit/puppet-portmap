@@ -1,3 +1,7 @@
 fixtures:
   symlinks:
     portmap: "#{source_dir}"
+  repositories:
+    facts: "https://github.com/puppetlabs/puppetlabs-facts.git"
+    provision: "https://github.com/puppetlabs/provision.git"
+    puppet_agent: "https://github.com/puppetlabs/puppetlabs-puppet_agent.git"
